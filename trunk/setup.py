@@ -7,12 +7,12 @@ except ImportError:
 
 setup(
     name='archive',
-    version="",
+    version="0.1",
     #description='',
-    #author='',
-    #author_email='',
+    author="Ben O'Steen",
+    author_email='benjamin.osteen@ouls.ox.ac.uk',
     #url='',
-    install_requires=["Pylons>=0.9.6.1"],
+    install_requires=["Pylons>=0.9.6.1","rdflib==2.4.0","uuid","elementtree"],
     packages=find_packages(exclude=['ez_setup']),
     include_package_data=True,
     test_suite='nose.collector',
