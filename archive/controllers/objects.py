@@ -333,6 +333,9 @@ class ObjectsController(BaseController):
             # Pingback header
             response.headers['X-Pingback'] = "%spingback" % g.root
             
+            content_type = g.f.ri.getContentType(id)
+            model = g.cm.get_model(content_type)
+            
             # Allow 'hacking' - .rdf => .xml format
             if format == "rdf":
                 h.redirect_to(format='xml')
@@ -378,6 +381,12 @@ class ObjectsController(BaseController):
                 url_dsid_list = dict([("%sobjects/%s/datastreams/%s" % (g.root, quote(id), dsid), ds_list[dsid]) for dsid in ds_list])
                 
                 rmap.add_aggregates_from_list(url_dsid_list)
+                
+                if len(model['metadata_for_page']) == 1:
+                    # Assume other metadata's are crosswalked versions
+                    for dsid in model['metadata_formats']:
+                        if dsid in ds_list:
+                            rmap.g.add((URIRef("%sobjects/%s/datastreams/%s" % (g.root, quote(id), model['metadata_for_page'][0])), rmap.dcterms['hasFormat'] , URIRef("%sobjects/%s/datastreams/%s" % (g.root, quote(id), dsid)) ))
                 
                 relationships = g.f.ri.getWalkGraph(id)
                 ore  = Namespace("http://www.openarchives.org/ore/terms/")

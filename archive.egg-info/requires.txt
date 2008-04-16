@@ -1,1 +1,4 @@
 Pylons>=0.9.6.1
+rdflib==2.4.0
+uuid
+elementtree

@@ -10,7 +10,9 @@ class cmodel_mapper():
         metadata_for_page: List of DSIDs that should be loaded as XML ElementTree objects and passed  
                     to the template in the c.metadata dictionary. E.g. ['MODS'] here will result in 
                     c.metadata['MODS'] = ElementTree XML object.
-        metadata_formats: List of DSIDs that contain item metadata (desc)
+        metadata_formats: List of DSIDs that contain item's metadata in other formats (desc)
+                            (Will be linked to canonical DSID from 'metadata_for_page' via
+                            dcterms:hasFormat in the aggregation)
         admin_datastreams: List of DSIDs that contain metadata about the object (adm)
             NB If a DSID is in either of the two previous lists, it will not be included in the
             Download list. It will still be downloadable however, and the XML datastream list will
