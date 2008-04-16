@@ -1,4 +1,5 @@
 #summary A walkthrough of the default url structures
+#labels Featured,Phase-Design
 
 = Details =
 
