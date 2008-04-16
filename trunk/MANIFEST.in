@@ -1,0 +1,2 @@
+recursive-include archive/public *
+recursive-include archive/templates *

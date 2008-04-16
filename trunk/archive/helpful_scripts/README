@@ -1,0 +1,23 @@
+These scripts are designed to be run from the /lib directory, but I have moved them here to highlight them.
+
+delete-all.py
+--------------
+Does what it says on the tin - very powerful, no recourse. Run at own risk.
+(It runs through all the items and for each one, removes it from the Solr index, and then from the Fedora objectstore.)
+
+count_items.py
+--------------
+Again, simple script that queries the risearch triplestore to see how many items there are, as well
+as ignoring the items that are a member (isMemberOfCollection) of an object which has type:imagecollection (via isMemberOf) - it was useful to me, and the query form may be useful to you.
+
+harvest_or08.py 
+---------------
+This is the script that will hit an appropriate EPrints 3.1 repository, and load it all into the local Fedora and Solr (must have ResMap and ResMapUrls output plugins installed)
+
+rescan_all.py
+-------------
+If you've changed the Solr config or need to re-run it over everything, use this script
+
+scan_objects_changed_since.py  *time*
+-------------------------------------
+A simple incremental script that will index objects that have been modified since the time indicated on the commandline. If no argument is passed to it, or if it doesn't understand the time value given, it'll default to getting all objects changed in the past 24 hours and (re-)adding those to the Solr index.
