@@ -12,7 +12,7 @@ A simple guide to starting your application and a few tips on debugging.
  # easy_install elementtree
  # easy_install beautifulsoup
  # easy_install rdflib==2.4.0
- # Install Fedora and Solr according to my (verbose) guide [http://oxfordrepo.blogspot.com/2008/02/creating-web-application-from-scratch.html here]
+ # Install Fedora and Solr according to my (verbose) guide [http://oxfordrepo.blogspot.com/2008/02/creating-web-application-from-scratch.html here] starting from Step 5.
  # Download and unarchive the archive_vXX.tar.gz from [http://code.google.com/p/python-fedoracommons-webarchive/downloads/list here]
  # If you are planning on using simple dublin core metadata as your core metadata vocabulary, there is a 'default_solr_schema.xml' in the archive root directory that will create fields for the default 14 terms. The fields are directly linked to the dublin core names, e.g. dc:title -> 'title' field in Solr. Also, all fields have an additional facet field, which has a prefix of f_ - therefore, 'title' is the field to search, but 'f_title' is the field to draw facets from.
  # After restarting Solr with its new schema.xml, go from the archive's root directory, and _cd_ into archive/lib/ folder.
