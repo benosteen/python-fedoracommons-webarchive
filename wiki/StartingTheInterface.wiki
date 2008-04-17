@@ -21,7 +21,7 @@ A simple guide to starting your application and a few tips on debugging.
  # Head back up to the archive root and run the following command:
   * {{{ paster serve --reload development.ini }}}
    * This should start serving the application, by using the settings present in development.ini (which has debugging turned *on* by default) and uses the --reload flag, which will quietly and automatically reload any pages, controllers or templates that it detects to have changed.
- # Should you want to change the port at which this application runs at, the .ini file contains a property near the beginning of the file, reading 'port: 5000'. Change this to whichever port is needed, by bear in mind that low ports, such as port 80 and 443, are restricted and the server would need to by run with elevated permissions.
+ # Should you want to change the port at which this application runs at, the .ini file contains a property near the beginning of the file, reading 'port: 5000'. Change this to whichever port is needed, but bear in mind that low ports, such as port 80 and 443, are restricted and the server would need to by run with elevated permissions.
  # Need to make it https? Create or get a ssl.pem file (as you might for an Apache server) and add this to the root of the web application. Add into the .ini file, just under the 'port' declaration - 'ssl_pem: name_of_pem_file.pem'
 
 === Debugging ===
