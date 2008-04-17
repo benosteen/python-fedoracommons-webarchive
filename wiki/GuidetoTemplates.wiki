@@ -1,0 +1,64 @@
+#summary Guide to the template framework used in this application
+#labels Featured,Phase-Design
+
+= Introduction =
+The markup used in the templates is called Mako, and documentation on working with Mako can be found here: http://wiki.pylonshq.com/display/pylonscookbook/Mako+for+people+in+a+hurry. This is not a guide to the underlying language used in the templates, but it's a guide to the templates as already laid out in this application.
+
+[Also, although this project doesn't use a gettext style for internationalisation, it is built into the templating language. This (http://wiki.pylonshq.com/display/pylonsdocs/Internationalization+and+Localization) is a good guide to how to make this Pylons-based application 'speak' other languages.]
+
+= Guide =
+
+== Guide to templates ==
+
+=== base.mak ===
+
+This is the base of all templates - it is intended to be inherited by all. It contains the HTML wrapper for the rest of the items, and gives the site its look and feel.
+
+In terms of structure, base.mak looks like this:
+
+The usual html declaration
+
+*In the <head> element*
+
+ * OpenSearch auto-discovery section
+ * unAPI auto-discovery section
+ * OAI-ORE Resource map auto-discovery section
+ * <style> section that is applied to all pages
+ * Import the <%def head_tags()%> from child templates
+  *All child templates declare a function 'head_tags()' which is imported here. Enables per-page styling and allows for the setting of the <title> element and addition of additional meta/link elements.
+
+*In the <body>:
+
+{{{
+<div id="header">
+Default 'static' content
+Import from <%def header()> from child templates
+</div>
+<div id="page_content">
+Default 'static' content
+Import the body of text from child templates (See below)
+</div>
+<div id="footer">
+Default 'static' content
+Import from <%def footer()> from child templates
+</div>
+}}}
+
+It is useful to include your overall site navigation in the header div.
+
+=== Child templates ===
+
+The minimal form of the average child template is as follows:
+
+{{{
+# -*- coding: utf-8 -*-
+<%inherit file="/base.mak" />
+<%def name="head_tags()">
+  <title> Information - Minimal template</title>
+</%def>
+<%def name="header()">
+</%def>
+<%def name="footer()">
+</%def>
+*Insert your page content from this point on*
+}}}
